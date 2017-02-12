@@ -12,7 +12,7 @@ h1 {
   text-align: center;
 }
 
-img {
+.table img {
   width: 40px;
   border: 2px solid black;
   border-radius: 4px;
@@ -35,6 +35,6 @@ tr:nth-child(even) {
   padding-left: 20px;
 }
 
-a {
+.table a {
   color: #264d00;
 }
