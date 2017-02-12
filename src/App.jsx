@@ -8,10 +8,21 @@ class App extends Component {
   renderCamper(camper, index) {
     return (
       <tr key={camper.key}>
-        <th scope="row">{index + 1}</th>
-        <td>{camper.username}</td>
-        <td>{camper.recent}</td>
-        <td>{camper.alltime}</td>
+        <th scope="row">
+          <span>{index + 1}</span>
+        </th>
+        <td>
+          <span>
+            <a href={"https://www.freecodecamp.com/"+camper.username} target="_blank"><img src={camper.img} /></a>
+            <a href={"https://www.freecodecamp.com/"+camper.username} target="_blank">{camper.username}</a>
+          </span>
+        </td>
+        <td>
+          <span>{camper.recent}</span>
+        </td>
+        <td>
+          <span>{camper.alltime}</span>
+        </td>
       </tr>
     );
   }
@@ -27,18 +38,27 @@ class App extends Component {
   render() {
     return (
       <div>
-        <div>
+        <div className="container">
+          <h1>Freecodecamp Camper Leaderboard</h1>
           <table className="table">
             <thead>
               <tr>
                 <th>#</th>
                 <th>Camper Name</th>
-                <th
-                  className={this.getColClass("RECENT")}
-                  onClick={() => this.props.appState.clickToggleSort("RECENT")}>Points past 30 days</th>
-                <th
-                  className={this.getColClass("ALLTIME")}
-                  onClick={() => this.props.appState.clickToggleSort("ALLTIME")}>Points all time</th>
+                <th>
+                  <span role="button"
+                    className={this.getColClass("RECENT")}
+                    onClick={() => this.props.appState.clickToggleSort("RECENT")}>
+                    Points past 30 days
+                  </span>
+                </th>
+                <th>
+                  <span role="button"
+                    className={this.getColClass("ALLTIME")}
+                    onClick={() => this.props.appState.clickToggleSort("ALLTIME")}>
+                    Points all time
+                  </span>
+                </th>
               </tr>
             </thead>
             <tbody>
